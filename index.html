@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISIC Türkiye - Uluslararası Öğrenci Kimlik Kartı</title>
+    <meta name="description" content="ISIC ile dünya çapında öğrenci indirimleri. Seyahat, alışveriş, kültür ve eğlence alanlarında özel avantajlar.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Header and Top Bar Improvements */
+        .top-bar .container {
+            max-width: 1400px;
+            padding: 0 30px;
+        }
+        
+        .header .container {
+            max-width: 1400px;
+            padding: 0 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            flex-shrink: 0;
+        }
+        
+        .nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 0 40px;
+        }
+        
+        .header-right {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-box input {
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            width: 220px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .header .container,
+            .top-bar .container {
+                max-width: 1200px;
+                padding: 0 20px;
+            }
+            
+            .nav {
+                margin: 0 20px;
+            }
+            
+            .search-box input {
+                width: 150px;
+            }
+            
+            .search-box input:focus {
+                width: 170px;
+            }
+        }
+        
+        @media (max-width: 959px) {
+            .header .container,
+            .top-bar .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span><i class="fas fa-envelope"></i> info@isicturkiye.com</span>
+                </div>
+                <div class="top-bar-right">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="language-selector">
+                        <button class="lang-btn active">TR</button>
+                        <button class="lang-btn">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye Logo" width="180">
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active">Ana Sayfa</a></li>
+                        <li class="dropdown">
+                            <a href="#cards" class="nav-link">Kartlar <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#isic">ISIC Kartı</a></li>
+                                <li><a href="#itic">ITIC Kartı</a></li>
+                                    </ul>
+                        </li>
+                        <li><a href="firsatlar.html" class="nav-link">Fırsatlar</a></li>
+                        <li><a href="#partners" class="nav-link">İş Ortakları</a></li>
+                        <li><a href="#experiences" class="nav-link">Deneyim Yazıları</a></li>
+                        <li><a href="#blog" class="nav-link">Blog Yazıları</a></li>
+                        <li><a href="#about" class="nav-link">Hakkımızda</a></li>
+                        <li><a href="#contact" class="nav-link">İletişim</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Ara...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section id="home" class="hero-section">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h1 class="hero-title">Dünya Çapında Öğrenci İndirimleri</h1>
+                                <p class="hero-subtitle">ISIC ile 130+ ülkede binlerce indirimden yararlanın</p>
+                                <div class="hero-features">
+                                    <div class="hero-feature">
+                                        <i class="fas fa-globe"></i>
+                                        <span>130+ Ülke</span>
+                                    </div>
+                                    <div class="hero-feature">
+                                        <i class="fas fa-users"></i>
+                                        <span>5M+ Öğrenci</span>
+                                    </div>
+                                    <div class="hero-feature">
+                                        <i class="fas fa-percentage"></i>
+                                        <span>%50'ye Kadar İndirim</span>
+                                    </div>
+                                </div>
+                                <div class="hero-buttons">
+                                    <a href="#cards" class="btn btn-primary btn-large">Kartınızı Alın</a>
+                                    <a href="firsatlar.html" class="btn btn-secondary btn-large">Fırsatları Keşfedin</a>
+                                </div>
+                            </div>
+                            <div class="hero-visual">
+                                <div class="hero-card">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="ISIC Kartı">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="slide-layout">
+                            <div class="slide-info">
+                                <div class="slide-category">
+                                    <i class="fas fa-plane"></i>
+                                    <span>Seyahat & Turizm</span>
+                                </div>
+                                <h1 class="slide-main-title">Seyahat İndirimleri</h1>
+                                <p class="slide-main-subtitle">Dünya çapında uçak bileti, otel ve ulaşım avantajları</p>
+                                
+                                <div class="slide-highlights">
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon">
+                                            <i class="fas fa-plane"></i>
+                                        </div>
+                                        <div class="highlight-content">
+                                            <strong>Uçak Biletleri</strong>
+                                            <span>%25'e kadar indirim</span>
+                                        </div>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon">
+                                            <i class="fas fa-hotel"></i>
+                                        </div>
+                                        <div class="highlight-content">
+                                            <strong>Konaklama</strong>
+                                            <span>Özel otel fiyatları</span>
+                                        </div>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <div class="highlight-icon">
+                                            <i class="fas fa-bus"></i>
+                                        </div>
+                                        <div class="highlight-content">
+                                            <strong>Ulaşım</strong>
+                                            <span>Otobüs & tren indirimleri</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slide-actions">
+                                    <a href="#cards" class="btn btn-primary btn-large">Kartınızı Alın</a>
+                                    <a href="#partners" class="btn btn-secondary btn-large">Partnerlerimiz</a>
+                                </div>
+                            </div>
+                            <div class="slide-visual">
+                                <div class="slide-image-modern">
+                                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Seyahat">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="slide-layout">
+                            <div class="slide-info">
+                                <div class="slide-category">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <span>Alışveriş & Teknoloji</span>
+                                </div>
+                                <h1 class="slide-main-title">Alışveriş Avantajları</h1>
+                                <p class="slide-main-subtitle">Teknoloji, giyim ve daha fazlasında özel indirimler</p>
+                                
+                                <div class="brand-showcase">
+                                    <div class="brand-item">
+                                        <div class="brand-logo">
+                                            <i class="fab fa-apple"></i>
+                                        </div>
+                                        <div class="brand-discount">%10 indirim</div>
+                                    </div>
+                                    <div class="brand-item">
+                                        <div class="brand-logo">
+                                            <i class="fab fa-google"></i>
+                                        </div>
+                                        <div class="brand-discount">%15 indirim</div>
+                                    </div>
+                                    <div class="brand-item">
+                                        <div class="brand-logo">
+                                            <i class="fas fa-tshirt"></i>
+                                        </div>
+                                        <div class="brand-discount">%25 indirim</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slide-stats-inline">
+                                    <div class="stat-item">
+                                        <strong>1000+</strong>
+                                        <span>Marka</span>
+                                    </div>
+                                    <div class="stat-divider">|</div>
+                                    <div class="stat-item">
+                                        <strong>%50'ye</strong>
+                                        <span>Kadar İndirim</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="slide-actions">
+                                    <a href="#cards" class="btn btn-primary btn-large">Kartınızı Alın</a>
+                                    <a href="#partners" class="btn btn-secondary btn-large">Markaları Gör</a>
+                                </div>
+                            </div>
+                            <div class="slide-visual">
+                                <div class="slide-image-modern">
+                                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Alışveriş">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="slide-layout">
+                            <div class="slide-info">
+                                <div class="slide-category">
+                                    <i class="fas fa-university"></i>
+                                    <span>Kültür & Sanat</span>
+                                </div>
+                                <h1 class="slide-main-title">Kültür İndirimleri</h1>
+                                <p class="slide-main-subtitle">Dünya çapında müzeler, galeri ve etkinliklerde özel fiyatlar</p>
+                                
+                                <div class="culture-highlights">
+                                    <div class="culture-item">
+                                        <div class="culture-icon">
+                                            <i class="fas fa-landmark"></i>
+                                        </div>
+                                        <div class="culture-info">
+                                            <strong>Louvre Müzesi</strong>
+                                            <span>Ücretsiz giriş</span>
+                                        </div>
+                                    </div>
+                                    <div class="culture-item">
+                                        <div class="culture-icon">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <div class="culture-info">
+                                            <strong>Sanat Galerileri</strong>
+                                            <span>%30 indirim</span>
+                                        </div>
+                                    </div>
+                                    <div class="culture-item">
+                                        <div class="culture-icon">
+                                            <i class="fas fa-theater-masks"></i>
+                                        </div>
+                                        <div class="culture-info">
+                                            <strong>Tiyatro & Konser</strong>
+                                            <span>Özel fiyatlar</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="culture-stats">
+                                    <div class="culture-stat">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span><strong>500+</strong> Şehir</span>
+                                    </div>
+                                    <div class="culture-stat">
+                                        <i class="fas fa-building"></i>
+                                        <span><strong>1000+</strong> Müze</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="slide-actions">
+                                    <a href="#cards" class="btn btn-primary btn-large">Kartınızı Alın</a>
+                                    <a href="#partners" class="btn btn-secondary btn-large">Müzeleri Gör</a>
+                                </div>
+                            </div>
+                            <div class="slide-visual">
+                                <div class="slide-image-modern culture-visual">
+                                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Müze">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <!-- Slider Dots -->
+        <div class="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="cards" class="cards-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kartlarımız</h2>
+                <p>Size uygun kartı seçin ve dünya çapında avantajlardan yararlanın</p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- ISIC Card -->
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="card-badge">Popüler</div>
+                    </div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ISIC Kartı">
+                    </div>
+                    <div class="card-content">
+                        <h3>ISIC Kartı</h3>
+                        <p class="card-subtitle">Uluslararası Öğrenci Kimlik Kartı</p>
+                        <p class="card-description">Dünya çapında tanınan tek öğrenci kimlik kartı ile 130+ ülkede binlerce indirimden yararlanın.</p>
+                        
+                        <div class="card-stats">
+                            <div class="stat">
+                                <strong>130+</strong>
+                                <span>Ülke</span>
+                            </div>
+                            <div class="stat">
+                                <strong>5M+</strong>
+                                <span>Öğrenci</span>
+                            </div>
+                            <div class="stat">
+                                <strong>%50</strong>
+                                <span>İndirim</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-actions">
+                            <a href="#apply" class="btn btn-primary btn-block">Kartınızı Alın</a>
+                            <a href="#learn-more" class="btn btn-secondary btn-block">Daha Fazla Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ITIC Card -->
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                    </div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ITIC Kartı">
+                    </div>
+                    <div class="card-content">
+                        <h3>ITIC Kartı</h3>
+                        <p class="card-subtitle">Uluslararası Öğretmen Kimlik Kartı</p>
+                        <p class="card-description">Eğitimciler için özel avantajlar sunan kart ile dünya çapında öğretmen indirimlerinden yararlanın.</p>
+                        
+                        <ul class="card-features">
+                            <li><i class="fas fa-check"></i> Öğretmenler için özel</li>
+                            <li><i class="fas fa-check"></i> Eğitim materyalleri indirimi</li>
+                            <li><i class="fas fa-check"></i> Profesyonel gelişim fırsatları</li>
+                        </ul>
+                        
+                        <div class="card-actions">
+                            <a href="#apply" class="btn btn-primary btn-block">Kartınızı Alın</a>
+                            <a href="#learn-more" class="btn btn-secondary btn-block">Daha Fazla Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Neden ISIC?</h2>
+                <p>Dünya çapında kabul gören tek öğrenci kimlik kartı ile global avantajlara erişin</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Geçerlilik</h3>
+                    <p>130+ ülkede tanınan uluslararası öğrenci kimlik kartı</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Büyük İndirimler</h3>
+                    <p>Binlerce mağaza ve hizmette %50'ye kadar tasarruf</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>5M+ Öğrenci</h3>
+                    <p>Dünya çapında dev öğrenci topluluğuna katılın</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobil Erişim</h3>
+                    <p>Yakınınızdaki indirimleri mobil app ile keşfedin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ISIC App Section -->
+    <section id="app" class="app-section">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-info">
+                    <h2>ISIC Mobil Uygulaması</h2>
+                    <p class="app-subtitle">İndirimleri cebinizde taşıyın, dünya çapında avantajlardan yararlanın</p>
+                    
+                    <div class="app-features">
+                        <div class="app-feature">
+                            <div class="app-feature-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="app-feature-text">
+                                <h4>Yakındaki İndirimler</h4>
+                                <p>Konumunuzu kullanarak yakınınızdaki indirimleri keşfedin</p>
+                            </div>
+                        </div>
+                        
+                        <div class="app-feature">
+                            <div class="app-feature-icon">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <div class="app-feature-text">
+                                <h4>QR Kod Tarama</h4>
+                                <p>Hızlıca QR kod tarayarak indirimlerden yararlanın</p>
+                            </div>
+                        </div>
+                        
+                        <div class="app-feature">
+                            <div class="app-feature-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="app-feature-text">
+                                <h4>Bildirimler</h4>
+                                <p>Yeni indirimler ve kampanyalardan anında haberdar olun</p>
+                            </div>
+                        </div>
+                        
+                        <div class="app-feature">
+                            <div class="app-feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="app-feature-text">
+                                <h4>Favoriler</h4>
+                                <p>Beğendiğiniz indirimleri kaydedin ve takip edin</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="app-buttons">
+                        <a href="#" class="btn btn-primary btn-large">
+                            <i class="fab fa-apple"></i>
+                            App Store'dan İndir
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-large">
+                            <i class="fab fa-google-play"></i>
+                            Google Play'den İndir
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="app-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="ISIC App Screenshot">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Global Partnerlerimiz</h2>
+                <p>Dünya çapında güvenilir markalar ile size en iyi indirimleri sunuyoruz</p>
+            </div>
+            
+            <div class="partners-showcase">
+                <div class="partners-category">
+                    <div class="category-header">
+                        <i class="fas fa-plane"></i>
+                        <h3>Seyahat</h3>
+                    </div>
+                    <div class="partner-brands">
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <span>Turkish Airlines</span>
+                        </div>
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <span>Booking.com</span>
+                        </div>
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <span>Hostelworld</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="partners-category">
+                    <div class="category-header">
+                        <i class="fas fa-laptop"></i>
+                        <h3>Teknoloji</h3>
+                    </div>
+                    <div class="partner-brands">
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fab fa-apple"></i>
+                            </div>
+                            <span>Apple</span>
+                        </div>
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <span>Samsung</span>
+                        </div>
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <span>Microsoft</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="partners-category">
+                    <div class="category-header">
+                        <i class="fas fa-palette"></i>
+                        <h3>Kültür</h3>
+                    </div>
+                    <div class="partner-brands">
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <span>Louvre</span>
+                        </div>
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <span>British Museum</span>
+                        </div>
+                        <div class="brand-card">
+                            <div class="brand-logo">
+                                <i class="fas fa-church"></i>
+                            </div>
+                            <span>Vatican</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="partners-cta">
+                <p><strong>1000+</strong> marka ile çalışıyoruz</p>
+                <a href="#cards" class="btn btn-primary">Tüm Avantajları Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Hemen Kartınızı Alın</h2>
+                <p>Dünya çapında öğrenci indirimlerinden yararlanmaya başlayın</p>
+                <div class="cta-buttons">
+                    <a href="#apply" class="btn btn-primary btn-large">Kartınızı Alın</a>
+                    <a href="#contact" class="btn btn-secondary btn-large">Bizimle İletişime Geçin</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>İletişim</h2>
+                <p>Sorularınız için bizimle iletişime geçin</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>E-posta</h4>
+                            <p>info@isicturkiye.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Adres</h4>
+                            <p>İstiklal Caddesi<br>Beyoğlu, İstanbul</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-header">
+                        <h3>Mesaj Gönderin</h3>
+                        <p>Size yardımcı olmaktan mutluluk duyarız</p>
+                    </div>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Adınız" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="E-posta" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Konu seçiniz</option>
+                                <option value="kart-basvuru">Kart Başvurusu</option>
+                                <option value="indirim-bilgi">İndirim Bilgisi</option>
+                                <option value="genel-soru">Genel Soru</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Mesajınız..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Mesaj Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye" width="120">
+                    </div>
+                    <p>Dünya çapında öğrenci indirimlerinden yararlanın</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#cards">Kartlar</a>
+                    <a href="#partners">İş Ortakları</a>
+                    <a href="#experiences">Deneyim Yazıları</a>
+                    <a href="#blog">Blog Yazıları</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> info@isicturkiye.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ISIC Türkiye. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

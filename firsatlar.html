@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fırsatlar - ISIC Türkiye - Uluslararası Öğrenci Kimlik Kartı</title>
+    <meta name="description" content="ISIC kartınızla dünya çapında binlerce markanın özel indirimlerinden yararlanın. Seyahat, teknoloji, kültür ve daha fazlası.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Top Bar and Header Improvements */
+        .top-bar {
+            padding: 8px 0;
+        }
+        
+        .top-bar .container {
+            max-width: 1400px;
+            padding: 0 30px;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .top-bar-left {
+            flex: 1;
+        }
+        
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .header {
+            padding: 15px 0;
+        }
+        
+        .header .container {
+            max-width: 1400px;
+            padding: 0 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            flex-shrink: 0;
+        }
+        
+        .nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 0 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            color: #333;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(64, 184, 184, 0.1);
+            color: #40b8b8 !important;
+            font-weight: 600;
+        }
+        
+        .header-right {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 200px;
+            padding: 8px 35px 8px 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            border-color: #40b8b8;
+            width: 220px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Responsive adjustments for header */
+        @media (max-width: 1200px) {
+            .header .container,
+            .top-bar .container {
+                max-width: 1200px;
+                padding: 0 20px;
+            }
+            
+            .nav {
+                margin: 0 20px;
+            }
+            
+            .search-box input {
+                width: 150px;
+            }
+            
+            .search-box input:focus {
+                width: 170px;
+            }
+        }
+        
+        @media (max-width: 959px) {
+            .header .container,
+            .top-bar .container {
+                padding: 0 15px;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .nav-link {
+                padding: 12px 15px;
+                font-size: 16px;
+                border-radius: 8px;
+                justify-content: flex-start;
+            }
+            
+            .search-box {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 8px;
+                z-index: 1001;
+            }
+            
+            .mobile-menu-btn span {
+                width: 24px;
+                height: 3px;
+                background: #333;
+                transition: all 0.3s ease;
+                border-radius: 2px;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+
+        /* Modern 3D Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 30px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes slideInScale {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0) scale3d(0.95, 0.95, 1);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) rotateX(0deg);
+            }
+        }
+
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 50px, -20px) rotateX(15deg);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) rotateX(0deg);
+            }
+        }
+
+        /* Opportunities Section Styles */
+        .opportunities-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .opportunities-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            perspective: 1000px;
+            animation: floatUp 1s ease-out;
+        }
+
+        .opportunities-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 16px;
+            background: linear-gradient(45deg, #40b8b8, #2a9d8f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInScale 1.2s ease-out 0.3s both;
+            transform-style: preserve-3d;
+        }
+
+        .opportunities-hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .search-opportunities {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+            animation: slideInScale 1s ease-out 0.8s both;
+            perspective: 1000px;
+        }
+
+        .opportunity-categories {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1s both;
+            perspective: 1000px;
+        }
+
+        .category-btn {
+            background: #ffffff;
+            border: 2px solid #e9ecef;
+            color: #666;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 14px;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(64, 184, 184, 0.1), rgba(42, 157, 143, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 50px;
+        }
+
+        .category-btn:hover::before {
+            opacity: 1;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #40b8b8;
+            border-color: #40b8b8;
+            color: #ffffff;
+            transform: translate3d(0, -4px, 0) scale3d(1.05, 1.05, 1);
+            box-shadow: 0 15px 35px rgba(64, 184, 184, 0.4);
+        }
+
+        .category-btn:active {
+            transform: translate3d(0, -2px, 0) scale3d(0.98, 0.98, 1);
+            transition: all 0.1s ease;
+        }
+
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+            perspective: 1000px;
+        }
+
+        .opportunity-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            animation: cardEntrance 0.8s ease-out both;
+            transform-style: preserve-3d;
+            position: relative;
+            will-change: transform;
+        }
+
+        .opportunity-card:nth-child(1) { animation-delay: 0.1s; }
+        .opportunity-card:nth-child(2) { animation-delay: 0.2s; }
+        .opportunity-card:nth-child(3) { animation-delay: 0.3s; }
+        .opportunity-card:nth-child(4) { animation-delay: 0.4s; }
+        .opportunity-card:nth-child(5) { animation-delay: 0.5s; }
+        .opportunity-card:nth-child(6) { animation-delay: 0.6s; }
+        .opportunity-card:nth-child(7) { animation-delay: 0.7s; }
+        .opportunity-card:nth-child(8) { animation-delay: 0.8s; }
+        .opportunity-card:nth-child(9) { animation-delay: 0.9s; }
+        .opportunity-card:nth-child(10) { animation-delay: 1s; }
+        .opportunity-card:nth-child(11) { animation-delay: 1.1s; }
+        .opportunity-card:nth-child(12) { animation-delay: 1.2s; }
+
+        .opportunity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(64, 184, 184, 0.05), rgba(42, 157, 143, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .opportunity-card:hover::before {
+            opacity: 1;
+        }
+
+        .opportunity-card:hover {
+            transform: translate3d(0, -15px, 0) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .opportunity-card:hover .opportunity-content {
+            transform: translate3d(0, -3px, 0);
+        }
+
+        .opportunity-card:hover .opportunity-image {
+            transform: scale3d(1.05, 1.05, 1);
+        }
+
+        .opportunity-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .opportunity-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+            transition: all 0.4s ease;
+        }
+
+        .opportunity-card:hover .opportunity-image::before {
+            background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.05));
+        }
+
+        .opportunity-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .opportunity-badge.travel { background: #FF6B6B; color: white; }
+        .opportunity-badge.tech { background: #4ECDC4; color: white; }
+        .opportunity-badge.culture { background: #45B7D1; color: white; }
+        .opportunity-badge.food { background: #FFA726; color: white; }
+        .opportunity-badge.shopping { background: #AB47BC; color: white; }
+        .opportunity-badge.education { background: #66BB6A; color: white; }
+
+        .opportunity-discount {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #feef00;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 2;
+        }
+
+        .opportunity-content {
+            padding: 24px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 2;
+        }
+
+        .opportunity-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .opportunity-brand span {
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .opportunity-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .opportunity-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .opportunities-cta {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideInScale 1s ease-out 1.5s both;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .opportunities-cta p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .search-opportunities input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-opportunities input:focus {
+            border-color: #40b8b8;
+        }
+
+        .search-opportunities button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #40b8b8;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-opportunities button:hover {
+            background: #2a9d8f;
+        }
+
+        /* Hide cards based on filter */
+        .opportunity-card.hidden {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 959px) {
+            .opportunities-hero h1 {
+                font-size: 36px;
+            }
+            
+            .opportunities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+            }
+            
+            .opportunity-categories {
+                gap: 8px;
+            }
+            
+            .category-btn {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .opportunities-section {
+                padding: 60px 0;
+            }
+            
+            .opportunities-hero h1 {
+                font-size: 28px;
+            }
+            
+            .opportunities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .opportunity-categories {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .category-btn {
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span><i class="fas fa-envelope"></i> info@isicturkiye.com</span>
+                </div>
+                <div class="top-bar-right">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="language-selector">
+                        <button class="lang-btn active">TR</button>
+                        <button class="lang-btn">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye Logo" width="180">
+                    </a>
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                        <li class="dropdown">
+                            <a href="#cards" class="nav-link">Kartlar <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#isic">ISIC Kartı</a></li>
+                                <li><a href="#itic">ITIC Kartı</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="firsatlar.html" class="nav-link active">Fırsatlar</a></li>
+                        <li><a href="index.html#partners" class="nav-link">İş Ortakları</a></li>
+                        <li><a href="#experiences" class="nav-link">Deneyim Yazıları</a></li>
+                        <li><a href="#blog" class="nav-link">Blog Yazıları</a></li>
+                        <li><a href="#about" class="nav-link">Hakkımızda</a></li>
+                        <li><a href="index.html#contact" class="nav-link">İletişim</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Ara...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Opportunities Section -->
+    <section class="opportunities-section">
+        <div class="container">
+            <div class="opportunities-hero">
+                <h1>Öğrenci Fırsatları</h1>
+                <p>ISIC kartınızla dünya çapında binlerce markanın özel indirimlerinden yararlanın. Seyahat, teknoloji, kültür ve daha fazlasında avantajlar sizi bekliyor.</p>
+            </div>
+            
+            <!-- Search Box -->
+            <div class="search-opportunities">
+                <input type="text" id="opportunity-search" placeholder="Marka veya kategori ara...">
+                <button type="button" onclick="searchOpportunities()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <!-- Category Filter -->
+            <div class="opportunity-categories">
+                <button class="category-btn active" data-category="all">Tümü</button>
+                <button class="category-btn" data-category="travel">Seyahat</button>
+                <button class="category-btn" data-category="tech">Teknoloji</button>
+                <button class="category-btn" data-category="culture">Kültür</button>
+                <button class="category-btn" data-category="food">Gıda</button>
+                <button class="category-btn" data-category="shopping">Alışveriş</button>
+                <button class="category-btn" data-category="education">Eğitim</button>
+            </div>
+            
+            <div class="opportunities-grid">
+                <!-- Travel Opportunities -->
+                <div class="opportunity-card" data-category="travel">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge travel">Seyahat</div>
+                        <div class="opportunity-discount">%25 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <span>Turkish Airlines</span>
+                        </div>
+                        <h3>Uçak Biletlerinde %25 İndirim</h3>
+                        <p>Dünya çapında tüm destinasyonlara özel öğrenci fiyatları. Seyahat planlarınızı gerçekleştirin.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+
+                <div class="opportunity-card" data-category="travel">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge travel">Seyahat</div>
+                        <div class="opportunity-discount">%20 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <span>Booking.com</span>
+                        </div>
+                        <h3>Konaklama İndirimleri</h3>
+                        <p>Dünya çapında otellerde özel öğrenci fiyatları. Konforlu konaklama fırsatları.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+                
+                <!-- Technology Opportunities -->
+                <div class="opportunity-card" data-category="tech">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge tech">Teknoloji</div>
+                        <div class="opportunity-discount">%10 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fab fa-apple"></i>
+                            </div>
+                            <span>Apple</span>
+                        </div>
+                        <h3>Apple Ürünlerinde Öğrenci İndirimi</h3>
+                        <p>Mac, iPad, iPhone ve daha fazlasında özel eğitim fiyatları. Teknoloji yatırımınızı yapın.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+
+                <div class="opportunity-card" data-category="tech">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge tech">Teknoloji</div>
+                        <div class="opportunity-discount">%15 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fab fa-microsoft"></i>
+                            </div>
+                            <span>Microsoft</span>
+                        </div>
+                        <h3>Surface ve Yazılım İndirimleri</h3>
+                        <p>Surface cihazlar ve Office 365'te öğrenci indirimleri. Üretkenliğinizi artırın.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+                
+                <!-- Culture Opportunities -->
+                <div class="opportunity-card" data-category="culture">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1549490349-8643362247b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge culture">Kültür</div>
+                        <div class="opportunity-discount">Ücretsiz Giriş</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <span>Louvre Müzesi</span>
+                        </div>
+                        <h3>Dünya Çapında Müze Girişleri</h3>
+                        <p>500+ müzede ücretsiz veya indirimli giriş hakkı. Kültürel deneyimlerinizi zenginleştirin.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+
+                <div class="opportunity-card" data-category="culture">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge culture">Kültür</div>
+                        <div class="opportunity-discount">%30 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-theater-masks"></i>
+                            </div>
+                            <span>Tiyatro & Konser</span>
+                        </div>
+                        <h3>Tiyatro ve Konser Biletleri</h3>
+                        <p>Canlı performanslarda özel öğrenci fiyatları. Sanat ve kültür etkinliklerine katılın.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+                
+                <!-- Food Opportunities -->
+                <div class="opportunity-card" data-category="food">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge food">Gıda</div>
+                        <div class="opportunity-discount">%20 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <span>McDonald's</span>
+                        </div>
+                        <h3>Fast Food Zincirlerinde İndirim</h3>
+                        <p>Popüler restoran zincirlerinde özel öğrenci menüleri. Lezzetli ve uygun fiyatlı yemekler.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+
+                <div class="opportunity-card" data-category="food">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge food">Gıda</div>
+                        <div class="opportunity-discount">%25 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <span>Starbucks</span>
+                        </div>
+                        <h3>Kahve Zincirlerinde İndirim</h3>
+                        <p>Sevdiğiniz kahve markalarında öğrenci indirimleri. Çalışma molalarınızı keyifli geçirin.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+                
+                <!-- Shopping Opportunities -->
+                <div class="opportunity-card" data-category="shopping">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge shopping">Alışveriş</div>
+                        <div class="opportunity-discount">%30 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fab fa-nike"></i>
+                            </div>
+                            <span>Nike</span>
+                        </div>
+                        <h3>Spor Giyim İndirimleri</h3>
+                        <p>Popüler spor markalarında %30'a kadar öğrenci indirimi. Aktif yaşamınızı destekleyin.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+
+                <div class="opportunity-card" data-category="shopping">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge shopping">Alışveriş</div>
+                        <div class="opportunity-discount">%20 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <span>Zara</span>
+                        </div>
+                        <h3>Moda Markalarında İndirim</h3>
+                        <p>Trend moda markalarında öğrenci indirimleri. Tarzınızı uygun fiyatlarla yansıtın.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+                
+                <!-- Education Opportunities -->
+                <div class="opportunity-card" data-category="education">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge education">Eğitim</div>
+                        <div class="opportunity-discount">%50 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fab fa-adobe"></i>
+                            </div>
+                            <span>Adobe</span>
+                        </div>
+                        <h3>Creative Suite Eğitim İndirimi</h3>
+                        <p>Adobe Creative Cloud'da %50 eğitim indirimi. Yaratıcı projelerinizi hayata geçirin.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+
+                <div class="opportunity-card" data-category="education">
+                    <div class="opportunity-image" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+                        <div class="opportunity-badge education">Eğitim</div>
+                        <div class="opportunity-discount">%40 İndirim</div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-brand">
+                            <div class="brand-logo">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <span>Udemy</span>
+                        </div>
+                        <h3>Online Kurslar İndirimi</h3>
+                        <p>Binlerce online kursta öğrenci indirimleri. Kendini geliştirme fırsatlarını kaçırma.</p>
+                        <a href="#" class="btn btn-primary btn-small">Fırsatı Gör</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="opportunities-cta">
+                <p><strong>1000+</strong> marka ile işbirliği içindeyiz</p>
+                <a href="index.html#cards" class="btn btn-primary btn-large">ISIC Kartınızı Alın</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye" width="120">
+                    </div>
+                    <p>Dünya çapında öğrenci indirimlerinden yararlanın</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="index.html#cards">Kartlar</a>
+                    <a href="index.html#partners">İş Ortakları</a>
+                    <a href="#experiences">Deneyim Yazıları</a>
+                    <a href="#blog">Blog Yazıları</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> info@isicturkiye.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ISIC Türkiye. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Simple filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const opportunityCards = document.querySelectorAll('.opportunity-card');
+            const searchInput = document.getElementById('opportunity-search');
+            
+            // Category filter
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    filterCards(category, searchInput.value);
+                });
+            });
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+                filterCards(activeCategory, this.value);
+            });
+            
+            function filterCards(category, searchTerm) {
+                opportunityCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    const cardText = card.textContent.toLowerCase();
+                    const matchesCategory = category === 'all' || cardCategory === category;
+                    const matchesSearch = searchTerm === '' || cardText.includes(searchTerm.toLowerCase());
+                    
+                    if (matchesCategory && matchesSearch) {
+                        card.classList.remove('hidden');
+                        card.style.display = 'block';
+                    } else {
+                        card.classList.add('hidden');
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+        
+        function searchOpportunities() {
+            const searchInput = document.getElementById('opportunity-search');
+            const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+            filterCards(activeCategory, searchInput.value);
+        }
+    </script>
+</body>
+</html>

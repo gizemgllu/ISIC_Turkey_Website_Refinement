@@ -88,6 +88,49 @@
                 padding: 0 15px;
             }
         }
+        
+        /* Dropdown test - make it always visible */
+        .dropdown-menu {
+            display: block !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background: #ffffff !important;
+            min-width: 200px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+            border-radius: 10px !important;
+            padding: 20px 0 !important;
+            z-index: 10000 !important;
+            border: 1px solid #e9ecef !important;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .dropdown-menu li {
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .dropdown-menu a {
+            color: #333 !important;
+            text-decoration: none !important;
+            padding: 12px 20px !important;
+            display: block !important;
+            transition: all 0.3s ease !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+        }
+        
+        .dropdown-menu a:hover {
+            background: #f5f5f5 !important;
+            color: #40b8b8 !important;
+        }
     </style>
 </head>
 <body>
@@ -128,15 +171,14 @@
                         <li class="dropdown">
                             <a href="#cards" class="nav-link">Kartlar <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#isic">ISIC Kartı</a></li>
-                                <li><a href="#itic">ITIC Kartı</a></li>
+                                <li><a href="#cards">ISIC Kartı</a></li>
+                                <li><a href="#cards">ITIC Kartı</a></li>
                                     </ul>
                         </li>
-                        <li><a href="firsatlar.html" class="nav-link">Fırsatlar</a></li>
-                        <li><a href="#partners" class="nav-link">İş Ortakları</a></li>
+                        <li><a href="firsatlar.html" class="nav-link" id="firsatlar-nav">Fırsatlar</a></li>
+                        <li><a href="#isic-partnership" class="nav-link">İş Birliği</a></li>
                         <li><a href="#experiences" class="nav-link">Deneyim Yazıları</a></li>
                         <li><a href="#blog" class="nav-link">Blog Yazıları</a></li>
-                        <li><a href="#about" class="nav-link">Hakkımızda</a></li>
                         <li><a href="#contact" class="nav-link">İletişim</a></li>
                     </ul>
                 </nav>
@@ -520,6 +562,35 @@
         </div>
     </section>
 
+    <!-- ISIC Partnership Section -->
+    <section id="isic-partnership" class="isic-partnership-section">
+        <div class="container">
+            <div class="partnership-header">
+                <h2>ISIC ile ortaklık</h2>
+            </div>
+            
+            <div class="partnership-cards">
+                <div class="partnership-card">
+                    <div class="partnership-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>İş Ortaklığı</h3>
+                    <p>ISIC öğrenci pazarlaması ile işletmeniz genç kesime ulaşacak, böylece müşteri tabanınız genişleyerek markanız için öğrenci dostu bir imaj yaratabileceksiniz. Ayrıca teklifiniz hem yerli hem de yabancı kullanıcılar için görünürlülük kazanacak.</p>
+                    <a href="#contact" class="btn btn-primary">Ortak olun</a>
+                </div>
+                
+                <div class="partnership-card">
+                    <div class="partnership-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Akademik Kurum Anlaşmaları</h3>
+                    <p>Uluslararası Öğrenci Kimlik Kartı ISIC ve Uluslararası Öğretmen Kimlik Kartı ITIC, öğrenciler ve öğretmenler için okullarına, kolejlerine veya üniversitelerine yakınlıklarını gösteren ve küresel akademik topluluğa erişim sağlayan bir kimlik belgesi olarak hizmet vermektedir. Her işbirliği bireysel gereksinimler göre uyarlanır.</p>
+                    <a href="#contact" class="btn btn-primary">Ortak olun</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ISIC App Section -->
     <section id="app" class="app-section">
         <div class="container">
@@ -592,6 +663,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Partners Section -->
     <section id="partners" class="partners-section">

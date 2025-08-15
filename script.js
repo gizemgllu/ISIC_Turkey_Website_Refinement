@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLanguageSelector();
     initSearch();
     initButtonLoading();
+    ensureNavVisibility();
 });
 
 // Hero Slider Functionality
@@ -121,6 +122,9 @@ function initDropdowns() {
     
     dropdowns.forEach(dropdown => {
         const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        const dropdownLink = dropdown.querySelector('.nav-link');
+        
+        if (!dropdownMenu) return;
         
         // Desktop hover
         if (window.innerWidth > 959) {
@@ -128,6 +132,7 @@ function initDropdowns() {
                 dropdownMenu.style.opacity = '1';
                 dropdownMenu.style.visibility = 'visible';
                 dropdownMenu.style.transform = 'translateY(0)';
+                dropdownMenu.style.display = 'block';
             });
             
             dropdown.addEventListener('mouseleave', () => {
@@ -135,11 +140,26 @@ function initDropdowns() {
                 dropdownMenu.style.visibility = 'hidden';
                 dropdownMenu.style.transform = 'translateY(-10px)';
             });
+            
+            // Also handle click for desktop
+            dropdownLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isVisible = dropdownMenu.style.visibility === 'visible';
+                if (isVisible) {
+                    dropdownMenu.style.opacity = '0';
+                    dropdownMenu.style.visibility = 'hidden';
+                    dropdownMenu.style.transform = 'translateY(-10px)';
+                } else {
+                    dropdownMenu.style.opacity = '1';
+                    dropdownMenu.style.visibility = 'visible';
+                    dropdownMenu.style.transform = 'translateY(0)';
+                    dropdownMenu.style.display = 'block';
+                }
+            });
         }
         
         // Mobile click
         if (window.innerWidth <= 959) {
-            const dropdownLink = dropdown.querySelector('.nav-link');
             dropdownLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 dropdownMenu.classList.toggle('active');
@@ -158,6 +178,7 @@ function initMobileMenu() {
             nav.classList.toggle('active');
             mobileMenuBtn.classList.toggle('active');
             document.body.classList.toggle('menu-open');
+            ensureNavVisibility();
         });
         
         // Close menu when clicking on a link
@@ -226,6 +247,25 @@ function updateActiveNavLink(targetId) {
     
     const activeLink = document.querySelector(`a[href="${targetId}"]`);
     if (activeLink) activeLink.classList.add('active');
+}
+
+// Ensure navigation visibility
+function ensureNavVisibility() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        // Force visibility for all navigation links
+        link.style.visibility = 'visible';
+        link.style.opacity = '1';
+        link.style.display = 'flex';
+    });
+    
+    // Special handling for Fırsatlar link
+    const firsatlarNav = document.getElementById('firsatlar-nav');
+    if (firsatlarNav) {
+        firsatlarNav.style.visibility = 'visible';
+        firsatlarNav.style.opacity = '1';
+        firsatlarNav.style.display = 'inline-flex';
+    }
 }
 
 // Header Scroll Effect

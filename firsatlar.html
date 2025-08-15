@@ -686,6 +686,27 @@
                 flex-shrink: 0;
             }
         }
+        
+        /* Fix for Fırsatlar navigation visibility */
+        #firsatlar-nav {
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: inline-flex !important;
+        }
+        
+        #firsatlar-nav.active {
+            color: #feef00 !important;
+            background-color: rgba(254, 239, 0, 0.1) !important;
+            font-weight: 600 !important;
+        }
+        
+        @media (max-width: 959px) {
+            #firsatlar-nav {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -726,17 +747,16 @@
                     <ul class="nav-menu">
                         <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
                         <li class="dropdown">
-                            <a href="#cards" class="nav-link">Kartlar <i class="fas fa-chevron-down"></i></a>
+                            <a href="index.html#cards" class="nav-link">Kartlar <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#isic">ISIC Kartı</a></li>
-                                <li><a href="#itic">ITIC Kartı</a></li>
+                                <li><a href="index.html#cards">ISIC Kartı</a></li>
+                                <li><a href="index.html#cards">ITIC Kartı</a></li>
                             </ul>
                         </li>
-                        <li><a href="firsatlar.html" class="nav-link active">Fırsatlar</a></li>
-                        <li><a href="index.html#partners" class="nav-link">İş Ortakları</a></li>
+                        <li><a href="firsatlar.html" class="nav-link active" id="firsatlar-nav">Fırsatlar</a></li>
+                        <li><a href="index.html#isic-partnership" class="nav-link">İş Birliği</a></li>
                         <li><a href="#experiences" class="nav-link">Deneyim Yazıları</a></li>
                         <li><a href="#blog" class="nav-link">Blog Yazıları</a></li>
-                        <li><a href="#about" class="nav-link">Hakkımızda</a></li>
                         <li><a href="index.html#contact" class="nav-link">İletişim</a></li>
                     </ul>
                 </nav>

@@ -237,17 +237,13 @@ p {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     border-radius: 10px;
     padding: 20px 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
+    display: none;
+    z-index: 10000;
+    border: 1px solid #e9ecef;
 }
 
 .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    display: block !important;
 }
 
 .dropdown-menu li {
@@ -805,45 +801,45 @@ p {
 
 /* ISIC App Section */
 .app-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 .app-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
 }
 
 .app-info h2 {
     color: #006666;
-    margin-bottom: 20px;
-    font-size: 50px;
+    margin-bottom: 16px;
+    font-size: 38px;
     font-weight: 900;
 }
 
 .app-subtitle {
-    font-size: 20px;
+    font-size: 18px;
     color: #666;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     line-height: 1.6;
 }
 
 .app-features {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .app-feature {
     display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 16px;
+    margin-bottom: 24px;
     align-items: flex-start;
 }
 
 .app-feature-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: #40b8b8;
     border-radius: 50%;
     display: flex;
@@ -853,14 +849,14 @@ p {
 }
 
 .app-feature-icon i {
-    font-size: 24px;
+    font-size: 20px;
     color: #ffffff;
 }
 
 .app-feature-text h4 {
     color: #006666;
-    margin-bottom: 10px;
-    font-size: 20px;
+    margin-bottom: 8px;
+    font-size: 18px;
     font-weight: 700;
 }
 
@@ -889,12 +885,12 @@ p {
 
 .phone-mockup {
     position: relative;
-    width: 300px;
-    height: 600px;
+    width: 250px;
+    height: 500px;
     background: #333;
-    border-radius: 40px;
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    border-radius: 35px;
+    padding: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
 .phone-screen {
@@ -908,6 +904,98 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* ISIC Partnership Section */
+.isic-partnership-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.partnership-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.partnership-header h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #006666;
+    margin-bottom: 0;
+}
+
+.partnership-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.partnership-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e5f3f3;
+}
+
+.partnership-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(64, 184, 184, 0.1);
+    border-color: #40b8b8;
+}
+
+.partnership-icon {
+    width: 80px;
+    height: 80px;
+    background: #40b8b8;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 32px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.partnership-card:hover .partnership-icon {
+    background: #359999;
+}
+
+.partnership-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #006666;
+    margin-bottom: 20px;
+}
+
+.partnership-card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.partnership-card .btn {
+    background: #40b8b8;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+}
+
+.partnership-card .btn:hover {
+    background: #359999;
+    transform: translateY(-1px);
 }
 
 /* Partners Section */
@@ -1317,6 +1405,14 @@ p {
     color: rgba(255,255,255,0.7);
 }
 
+/* Desktop dropdown fallback */
+@media (min-width: 960px) {
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+        display: block !important;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 1199px) {
     .slide-title { font-size: 50px; }
@@ -1547,6 +1643,27 @@ p {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Navigation visibility protection */
+#firsatlar-nav {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: inline-flex !important;
+}
+
+#firsatlar-nav.active {
+    color: #feef00 !important;
+    background-color: rgba(254, 239, 0, 0.1) !important;
+    font-weight: 600 !important;
+}
+
+@media (max-width: 959px) {
+    #firsatlar-nav {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
 }
 
 /* Modern Card Styles */
@@ -1997,11 +2114,51 @@ html {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
+    
+    .partnership-cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .partnership-header h2 {
+        font-size: 32px;
+    }
+    
+    .partnership-card {
+        padding: 32px;
+    }
 }
 
 @media (max-width: 639px) {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+    }
+    
+    .partnership-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .partnership-card {
+        padding: 28px 20px;
+    }
+    
+    .partnership-header h2 {
+        font-size: 28px;
+    }
+    
+    .partnership-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+    
+    .partnership-card h3 {
+        font-size: 20px;
+    }
+    
+    .isic-partnership-section {
+        padding: 60px 0;
     }
 }

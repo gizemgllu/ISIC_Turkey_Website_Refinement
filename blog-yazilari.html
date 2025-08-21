@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Yazıları - ISIC Türkiye</title>
+    <meta name="description" content="ISIC Türkiye blog yazıları. Öğrenci hayatı, seyahat ipuçları, eğitim fırsatları ve daha fazlası hakkında güncel içerikler.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Blog Page Styles - Following existing design system */
+        
+        /* Header and Top Bar matching existing structure */
+        .top-bar .container {
+            max-width: 1400px;
+            padding: 0 30px;
+        }
+        
+        .header .container {
+            max-width: 1400px;
+            padding: 0 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            flex-shrink: 0;
+        }
+        
+        .nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 0 40px;
+        }
+        
+        .header-right {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        /* Blog Hero Section */
+        .blog-hero {
+            background: linear-gradient(135deg, #40b8b8 0%, #006666 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=20') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .blog-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+        
+        /* Blog Section Layout */
+        .blog-section {
+            padding: 60px 0;
+        }
+        
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .blog-main {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .blog-posts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        /* Featured Post */
+        .featured-post {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .featured-post:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .featured-image {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #40b8b8;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .featured-content {
+            padding: 30px;
+        }
+        
+        .featured-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        /* Regular Blog Posts */
+        .blog-post {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            height: fit-content;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .blog-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+        }
+        
+        .blog-badge.education { background: #28a745; }
+        .blog-badge.travel { background: #40b8b8; }
+        .blog-badge.career { background: #6f42c1; }
+        .blog-badge.tech { background: #fd7e14; }
+        .blog-badge.lifestyle { background: #e83e8c; }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+            color: #666;
+            font-size: 13px;
+        }
+        
+        .blog-meta i {
+            color: #40b8b8;
+            margin-right: 6px;
+        }
+        
+        .blog-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .featured-excerpt {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .blog-link {
+            color: #40b8b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            color: #359999;
+        }
+        
+        .blog-link:hover i {
+            transform: translateX(4px);
+        }
+        
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+        }
+        
+        .widget-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #333;
+            border-bottom: 3px solid #40b8b8;
+            padding-bottom: 10px;
+        }
+        
+        .popular-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .popular-post-image {
+            width: 80px;
+            height: 60px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        
+        .popular-post-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        
+        .popular-post-content h4 a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .popular-post-content h4 a:hover {
+            color: #40b8b8;
+        }
+        
+        .popular-post-date {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .categories-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .category-item:hover {
+            background: #40b8b8;
+            color: white;
+        }
+        
+        .category-count {
+            background: white;
+            color: #666;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .category-item:hover .category-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .category-item.active {
+            background: #40b8b8;
+            color: white;
+        }
+        
+        .category-item.active .category-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .blog-item {
+            transition: all 0.3s ease;
+        }
+        
+        .blog-item.hidden {
+            display: none;
+        }
+        
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag-item {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .tag-item:hover {
+            background: #40b8b8;
+            color: white;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 60px;
+        }
+        
+        .pagination a {
+            padding: 12px 18px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination a:hover,
+        .pagination a.active {
+            background: #40b8b8;
+            border-color: #40b8b8;
+            color: white;
+        }
+        
+        @media (max-width: 1024px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .blog-sidebar {
+                order: -1;
+            }
+            
+            .sidebar-widget {
+                padding: 25px;
+            }
+            
+            .blog-posts-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .blog-content {
+                padding: 20px;
+            }
+            
+            .blog-title {
+                font-size: 16px;
+            }
+            
+            .featured-title {
+                font-size: 20px;
+            }
+            
+            .featured-content {
+                padding: 25px;
+            }
+            
+            .blog-posts-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .blog-image {
+                height: 160px;
+            }
+            
+            .featured-image {
+                height: 220px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .blog-meta {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+            }
+            
+            .blog-excerpt {
+                -webkit-line-clamp: 2;
+            }
+            
+            .featured-excerpt {
+                -webkit-line-clamp: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span><i class="fas fa-envelope"></i> info@isicturkiye.com</span>
+                </div>
+                <div class="top-bar-right">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="language-selector">
+                        <button class="lang-btn active">TR</button>
+                        <button class="lang-btn">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye Logo" width="180">
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                        <li class="dropdown">
+                            <a href="#cards" class="nav-link">Kartlar <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#cards">ISIC Kartı</a></li>
+                                <li><a href="#cards">ITIC Kartı</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="firsatlar.html" class="nav-link" id="firsatlar-nav">Fırsatlar</a></li>
+                        <li><a href="#isic-partnership" class="nav-link">İş Birliği</a></li>
+                        <li><a href="deneyim-yazilari.html" class="nav-link">Deneyim Yazıları</a></li>
+                        <li><a href="blog-yazilari.html" class="nav-link active">Blog Yazıları</a></li>
+                        <li><a href="#contact" class="nav-link">İletişim</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Ara...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Blog Yazıları</h1>
+                <p>Öğrenci hayatı, seyahat ipuçları, eğitim fırsatları ve ISIC avantajları hakkında güncel blog yazılarımızı keşfedin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Main Blog Content -->
+                <div class="blog-main">
+                    <!-- Featured Post -->
+                    <article class="featured-post blog-item" data-category="eğitim">
+                        <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+                            <div class="featured-badge">Eğitim</div>
+                        </div>
+                        <div class="featured-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i>20 Mart 2024</span>
+                                <span><i class="fas fa-user"></i>ISIC Editör</span>
+                            </div>
+                            <h2 class="featured-title">2024'te Öğrencilerin Mutlaka Bilmesi Gereken 10 Online Eğitim Platformu</h2>
+                            <p class="featured-excerpt">Dijital çağda eğitim fırsatları sınırsız. ISIC kartınızla erişebileceğiniz en iyi online eğitim platformlarını ve bu platformlarda alabileceğiniz indirim fırsatlarını derledik...</p>
+                            <a href="#" class="blog-link">
+                                Devamını Oku
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Regular Posts Grid -->
+                    <div class="blog-posts-grid">
+                    <article class="blog-post blog-item" data-category="seyahat">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="blog-badge travel">Seyahat</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i>18 Mart 2024</span>
+                                <span><i class="fas fa-user"></i>Seyahat Editörü</span>
+                            </div>
+                            <h3 class="blog-title">Bütçe Dostu Avrupa Turu: ISIC ile Tasarruf İpuçları</h3>
+                            <p class="blog-excerpt">Avrupa'yı gezmek pahalı olmak zorunda değil! ISIC kartınızla nasıl %50'ye varan tasarruf yapabileceğinizi, hangi şehirlerde en iyi fırsatları bulabileceğinizi ve seyahat rotası planlamayı anlatıyoruz.</p>
+                            <a href="#" class="blog-link">
+                                Devamını Oku
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post blog-item" data-category="kariyer">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="blog-badge career">Kariyer</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i>15 Mart 2024</span>
+                                <span><i class="fas fa-user"></i>Kariyer Uzmanı</span>
+                            </div>
+                            <h3 class="blog-title">Üniversite Hayatında Networking: Profesyonel Ağ Kurma Rehberi</h3>
+                            <p class="blog-excerpt">Üniversite yıllarınızda güçlü bir profesyonel ağ kurmak kariyerinizin temelini atar. ISIC etkinliklerinden faydalanarak nasıl değerli bağlantılar kurabileceğinizi öğrenin.</p>
+                            <a href="#" class="blog-link">
+                                Devamını Oku
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post blog-item" data-category="teknoloji">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="blog-badge tech">Teknoloji</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i>12 Mart 2024</span>
+                                <span><i class="fas fa-user"></i>Teknoloji Editörü</span>
+                            </div>
+                            <h3 class="blog-title">Öğrenciler İçin En İyi Ücretsiz Yazılımlar ve Araçlar</h3>
+                            <p class="blog-excerpt">Eğitim hayatınızı kolaylaştıracak ücretsiz yazılımlar ve ISIC kartınızla alabileceğiniz premium yazılım indirimleri. Microsoft Office'tan Adobe Creative Suite'e kadar.</p>
+                            <a href="#" class="blog-link">
+                                Devamını Oku
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post blog-item" data-category="yaşam">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="blog-badge lifestyle">Yaşam</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i>8 Mart 2024</span>
+                                <span><i class="fas fa-user"></i>Yaşam Koçu</span>
+                            </div>
+                            <h3 class="blog-title">Öğrenci Bütçesiyle Sağlıklı Yaşam: Beslenme ve Spor İpuçları</h3>
+                            <p class="blog-excerpt">Kısıtlı bütçeyle sağlıklı beslenme ve spor yapma yolları. ISIC kartınızla alabileceğiniz spor salonu indirimleri ve sağlıklı beslenme önerileri.</p>
+                            <a href="#" class="blog-link">
+                                Devamını Oku
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="blog-sidebar">
+                    <!-- Popular Posts Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Popüler Yazılar</h3>
+                        <div class="popular-posts">
+                            <div class="popular-post">
+                                <div class="popular-post-image" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');"></div>
+                                <div class="popular-post-content">
+                                    <h4><a href="#">Erasmus Öncesi Hazırlık Rehberi</a></h4>
+                                    <div class="popular-post-date">25 Şubat 2024</div>
+                                </div>
+                            </div>
+                            <div class="popular-post">
+                                <div class="popular-post-image" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');"></div>
+                                <div class="popular-post-content">
+                                    <h4><a href="#">Online Sınavlarda Başarı İpuçları</a></h4>
+                                    <div class="popular-post-date">20 Şubat 2024</div>
+                                </div>
+                            </div>
+                            <div class="popular-post">
+                                <div class="popular-post-image" style="background-image: url('https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');"></div>
+                                <div class="popular-post-content">
+                                    <h4><a href="#">İstanbul'da Öğrenci Dostu Mekanlar</a></h4>
+                                    <div class="popular-post-date">18 Şubat 2024</div>
+                                </div>
+                            </div>
+                            <div class="popular-post">
+                                <div class="popular-post-image" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');"></div>
+                                <div class="popular-post-content">
+                                    <h4><a href="#">Stres Yönetimi Teknikleri</a></h4>
+                                    <div class="popular-post-date">15 Şubat 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Kategoriler</h3>
+                        <div class="categories-list">
+                            <a href="#" class="category-item" data-filter="all">
+                                <span>Tümü</span>
+                                <span class="category-count">38</span>
+                            </a>
+                            <a href="#" class="category-item" data-filter="eğitim">
+                                <span>Eğitim</span>
+                                <span class="category-count">12</span>
+                            </a>
+                            <a href="#" class="category-item" data-filter="seyahat">
+                                <span>Seyahat</span>
+                                <span class="category-count">8</span>
+                            </a>
+                            <a href="#" class="category-item" data-filter="kariyer">
+                                <span>Kariyer</span>
+                                <span class="category-count">6</span>
+                            </a>
+                            <a href="#" class="category-item" data-filter="teknoloji">
+                                <span>Teknoloji</span>
+                                <span class="category-count">5</span>
+                            </a>
+                            <a href="#" class="category-item" data-filter="yaşam">
+                                <span>Yaşam</span>
+                                <span class="category-count">4</span>
+                            </a>
+                            <a href="#" class="category-item" data-filter="kültür">
+                                <span>Kültür</span>
+                                <span class="category-count">3</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye" width="120">
+                    </div>
+                    <p>Dünya çapında öğrenci indirimlerinden yararlanın</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#cards">Kartlar</a>
+                    <a href="#partners">İş Ortakları</a>
+                    <a href="deneyim-yazilari.html">Deneyim Yazıları</a>
+                    <a href="blog-yazilari.html">Blog Yazıları</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> info@isicturkiye.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ISIC Türkiye. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Blog category filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-item[data-filter]');
+            const blogItems = document.querySelectorAll('.blog-item');
+            
+            // Set default active state for "Tümü" button
+            categoryButtons[0].classList.add('active');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    blogItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            // Show all items
+                            item.classList.remove('hidden');
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            const itemCategory = item.getAttribute('data-category');
+                            if (itemCategory === filterValue) {
+                                // Show matching items
+                                item.classList.remove('hidden');
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'translateY(0)';
+                                }, 50);
+                            } else {
+                                // Hide non-matching items
+                                item.style.opacity = '0';
+                                item.style.transform = 'translateY(-20px)';
+                                setTimeout(() => {
+                                    item.classList.add('hidden');
+                                }, 300);
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

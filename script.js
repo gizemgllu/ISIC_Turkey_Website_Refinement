@@ -13,7 +13,35 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearch();
     initButtonLoading();
     ensureNavVisibility();
+    handleHashOnLoad();
 });
+
+// Handle hash in URL when page loads
+function handleHashOnLoad() {
+    // Check if there's a hash in the URL
+    if (window.location.hash) {
+        const targetId = window.location.hash;
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            // Small delay to ensure page is fully loaded
+            setTimeout(() => {
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const topBarHeight = document.querySelector('.top-bar')?.offsetHeight || 0;
+                const totalOffset = headerHeight + topBarHeight;
+                const targetPosition = targetSection.offsetTop - totalOffset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update active navigation link
+                updateActiveNavLink(targetId);
+            }, 100);
+        }
+    }
+}
 
 // Hero Slider Functionality
 function initSlider() {

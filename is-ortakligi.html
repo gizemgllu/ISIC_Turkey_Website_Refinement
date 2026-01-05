@@ -277,7 +277,8 @@
 
                 <nav class="nav">
                     <ul class="nav-menu">
-                        <li><a href="firsatlar.html" class="nav-link">Fırsatlar</a></li>
+                        <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                        <li><a href="firsatlar.html" class="nav-link" id="firsatlar-nav">Fırsatlar</a></li>
                         <li><a href="akademik-anlasmalar.html" class="nav-link">Okullar İçin</a></li>
                         <li><a href="is-ortakligi.html" class="nav-link active">İşletmeler İçin</a></li>
                         <li><a href="deneyim-yazilari.html" class="nav-link">Deneyim Yazıları</a></li>
@@ -287,7 +288,7 @@
                 </nav>
 
                 <div class="header-right">
-                    <a href="index.html#apply" class="btn btn-primary btn-apply-header">ŞİMDİ BAŞVUR</a>
+                    <a href="#apply" class="btn btn-primary btn-apply-header">ŞİMDİ BAŞVUR</a>
                     <div class="search-box">
                         <input type="text" placeholder="Ara...">
                         <button type="button"><i class="fas fa-search"></i></button>
@@ -502,6 +503,162 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Apply Button (Mobile) -->
+    <a href="#apply" class="floating-apply-btn" aria-label="Apply Now">
+        <i class="fas fa-credit-card"></i>
+        <span>ŞİMDİ BAŞVUR</span>
+    </a>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="application-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>ISIC / ITIC Başvurusu</h2>
+                <button class="modal-close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <form id="applicationForm" class="application-form">
+                    <!-- Student/Teacher Selection -->
+                    <div class="form-group">
+                        <label>Öğrenci/Öğretmen <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="userType" value="student" checked required>
+                                <span>Öğrenci</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="userType" value="teacher" required>
+                                <span>Öğretmen</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Name Fields -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ad <span class="required">*</span></label>
+                            <input type="text" name="firstName" required placeholder="Adınız">
+                        </div>
+                        <div class="form-group">
+                            <label>Soyad <span class="required">*</span></label>
+                            <input type="text" name="lastName" required placeholder="Soyadınız">
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="form-group">
+                        <label>Cinsiyet <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female" required>
+                                <span>Kadın</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male" required>
+                                <span>Erkek</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other" required>
+                                <span>Diğer</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- School Name -->
+                    <div class="form-group">
+                        <label>Okulun Adı <span class="required">*</span></label>
+                        <select name="school" required>
+                            <option value="">Okul seçiniz</option>
+                            <option value="bogazici">Boğaziçi Üniversitesi</option>
+                            <option value="istanbul">İstanbul Üniversitesi</option>
+                            <option value="ankara">Ankara Üniversitesi</option>
+                            <option value="ege">Ege Üniversitesi</option>
+                            <option value="other">Diğer</option>
+                        </select>
+                    </div>
+
+                    <!-- City and Education Level -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Bulunduğun Şehir <span class="required">*</span></label>
+                            <select name="city" required>
+                                <option value="">Şehir seçiniz</option>
+                                <option value="istanbul">İstanbul</option>
+                                <option value="ankara">Ankara</option>
+                                <option value="izmir">İzmir</option>
+                                <option value="antalya">Antalya</option>
+                                <option value="bursa">Bursa</option>
+                                <option value="other">Diğer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Eğitim Durumu <span class="required">*</span></label>
+                            <select name="educationLevel" required>
+                                <option value="">Seçiniz</option>
+                                <option value="lise">Lise</option>
+                                <option value="lisans">Lisans</option>
+                                <option value="yuksek-lisans">Yüksek Lisans</option>
+                                <option value="doktora">Doktora</option>
+                                <option value="acikogretim">Açıköğretim</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Birth Date, Phone, Email -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Doğum Tarihi <span class="required">*</span></label>
+                            <input type="date" name="birthDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon <span class="required">*</span></label>
+                            <input type="tel" name="phone" required placeholder="+90 5XX XXX XX XX">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label>E-posta <span class="required">*</span></label>
+                        <input type="email" name="email" required placeholder="ornek@email.com">
+                    </div>
+
+                    <!-- Privacy Policy -->
+                    <div class="form-group checkbox-group compact-checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacyPolicy" required>
+                            <span>Aydınlatma metnini okudum ve kabul ediyorum</span>
+                        </label>
+                    </div>
+                    <div class="form-group checkbox-group compact-checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consent" required>
+                            <span>Kişisel verilerimin işlenmesine açık rıza veriyorum</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large btn-block">
+                            <i class="fas fa-credit-card"></i> Ödeme yap
+                        </button>
+                    </div>
+
+                    <!-- Price Info -->
+                    <div class="price-info">
+                        <p>Vergiler dahil</p>
+                        <div class="price">
+                            <span class="price-label">ISIC/ITIC</span>
+                            <span class="price-amount">TL</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>

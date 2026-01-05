@@ -1,3 +1,42 @@
+// Global function for opening modal - defined before DOMContentLoaded
+window.openModal = function() {
+    console.log('🔵 openModal called!');
+    const modal = document.getElementById('applicationModal');
+    if (!modal) {
+        console.error('❌ Modal not found!');
+        alert('Modal bulunamadı! Sayfayı yenileyin.');
+        return;
+    }
+    console.log('✅ Modal found, adding active class...');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    if (window.location.hash !== '#apply') {
+        history.pushState(null, null, '#apply');
+    }
+
+    console.log('✅ Modal should be visible now!');
+};
+
+// Global function for closing modal
+window.closeModal = function() {
+    console.log('🔵 closeModal called!');
+    const modal = document.getElementById('applicationModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+
+        const form = modal.querySelector('#applicationForm');
+        if (form) {
+            form.reset();
+        }
+
+        if (window.location.hash === '#apply') {
+            history.replaceState(null, null, window.location.pathname);
+        }
+    }
+};
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
@@ -15,6 +54,24 @@ document.addEventListener('DOMContentLoaded', function() {
     ensureNavVisibility();
     handleHashOnLoad();
     initApplicationModal();
+
+    // Additional direct event listener for ŞİMDİ BAŞVUR buttons (fallback)
+    setTimeout(() => {
+        const applyButtons = document.querySelectorAll('a[href="#apply"], a[href*="#apply"], .btn-apply-header, .btn-apply-top, .floating-apply-btn');
+        console.log('🔵 Found apply buttons:', applyButtons.length);
+
+        applyButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                console.log('🔵 Direct apply button clicked!');
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+
+                window.openModal();
+                return false;
+            }, true);
+        });
+    }, 100);
 });
 
 // Handle hash in URL when page loads
@@ -689,84 +746,53 @@ function initLazyLoading() {
 // Application Modal Functionality
 function initApplicationModal() {
     const modal = document.getElementById('applicationModal');
-    const closeBtn = modal?.querySelector('.modal-close');
-    const overlay = modal?.querySelector('.modal-overlay');
-    const form = modal?.querySelector('#applicationForm');
+    
+    if (!modal) {
+        console.error('❌ Application modal not found in the page! Make sure the modal HTML is included.');
+        return;
+    }
+    
+    console.log('✅ Modal found, initializing...');
+    
+    const closeBtn = modal.querySelector('.modal-close');
+    const overlay = modal.querySelector('.modal-overlay');
+    const form = modal.querySelector('#applicationForm');
 
-    // Open modal function
-    window.openApplicationModal = function() {
-        console.log('Opening modal...', modal);
-        if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            // Add #apply to URL when modal opens
-            if (window.location.hash !== '#apply') {
-                history.pushState(null, null, '#apply');
-            }
-            // Focus on first input
-            const firstInput = modal.querySelector('input, select');
-            if (firstInput) {
-                setTimeout(() => firstInput.focus(), 300);
-            }
-        } else {
-            console.error('Modal element not found!');
-        }
-    };
+    // Alias the global functions for backwards compatibility
+    window.openApplicationModal = window.openModal;
+    window.closeApplicationModal = window.closeModal;
 
     // Check URL hash on page load - auto-open modal if #apply is in URL
     if (window.location.hash === '#apply') {
         console.log('Detected #apply in URL, opening modal automatically...');
         setTimeout(() => {
-            window.openApplicationModal();
+            window.openModal();
         }, 500); // Small delay to ensure page is fully loaded
     }
-    
-    // Close modal function
-    window.closeApplicationModal = function() {
-        if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            // Reset form
-            if (form) {
-                form.reset();
-                // Clear any error messages
-                const errors = modal.querySelectorAll('.field-error');
-                errors.forEach(error => error.remove());
-            }
-            // Remove #apply from URL when modal closes
-            if (window.location.hash === '#apply') {
-                history.replaceState(null, null, window.location.pathname);
-            }
-        }
-    };
-    
+
     // Close button
     if (closeBtn) {
-        closeBtn.addEventListener('click', window.closeApplicationModal);
+        closeBtn.addEventListener('click', window.closeModal);
     }
-    
+
     // Close on overlay click
     if (overlay) {
-        overlay.addEventListener('click', window.closeApplicationModal);
+        overlay.addEventListener('click', window.closeModal);
     }
     
     // Close on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal?.classList.contains('active')) {
-            window.closeApplicationModal();
+            window.closeModal();
         }
     });
 
     // Handle browser back button - close modal if it's open
     window.addEventListener('popstate', function(e) {
         if (modal?.classList.contains('active') && window.location.hash !== '#apply') {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            if (form) {
-                form.reset();
-            }
+            window.closeModal();
         } else if (!modal?.classList.contains('active') && window.location.hash === '#apply') {
-            window.openApplicationModal();
+            window.openModal();
         }
     });
     
@@ -821,16 +847,22 @@ function initApplicationModal() {
         });
     }
     
-    // Update buttons to open modal - use event delegation for better reliability
-    // Use capture phase to ensure we catch the event before smooth scrolling
-    document.addEventListener('click', function(e) {
-        const target = e.target.closest('a');
+    // Use event delegation on document body - this is more reliable
+    document.body.addEventListener('click', function(e) {
+        let target = e.target;
+        
+        // Find the closest anchor tag
+        while (target && target.tagName !== 'A') {
+            target = target.parentElement;
+        }
+        
         if (!target) return;
-
+        
         const href = target.getAttribute('href');
         const buttonText = target.textContent.trim();
-
-        // Check if it's an apply button
+        const classes = target.className || '';
+        
+        // Check for #apply links
         if (href === '#apply' || target.classList.contains('floating-apply-btn')) {
             e.preventDefault();
             e.stopPropagation();
@@ -839,32 +871,46 @@ function initApplicationModal() {
             if (window.openApplicationModal) {
                 window.openApplicationModal();
             } else {
-                console.error('openApplicationModal not defined');
+                console.error('openApplicationModal function not found!');
+                alert('Modal açılamadı. Lütfen sayfayı yenileyin.');
             }
             return false;
         }
-
-        // Check if it's a "Kartınızı Alın" button
-        if ((buttonText.includes('Kartınızı Alın') || buttonText.includes('Kartınızı alın') ||
-             buttonText.includes('ŞİMDİ BAŞVUR')) &&
-            target.classList.contains('btn')) {
-            // Only handle if it's not linking to an HTML file or external URL
-            if (href && !href.startsWith('http') && !href.endsWith('.html') &&
-                !href.startsWith('mailto:') && href !== '#cards' && href !== '#partners' &&
-                href !== '#contact' && href !== '#home') {
-                e.preventDefault();
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-                console.log('Kartınızı Alın button clicked, opening modal...');
-                if (window.openApplicationModal) {
-                    window.openApplicationModal();
-                } else {
-                    console.error('openApplicationModal not defined');
-                }
-                return false;
+        
+        // Check for "ŞİMDİ BAŞVUR" buttons (case insensitive)
+        const upperText = buttonText.toUpperCase();
+        if ((upperText.includes('ŞİMDİ BAŞVUR') || upperText.includes('SIMDI BASVUR')) && 
+            (classes.includes('btn') || classes.includes('btn-apply') || classes.includes('btn-apply-header') || classes.includes('btn-apply-top'))) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log('ŞİMDİ BAŞVUR button clicked, opening modal...');
+            if (window.openApplicationModal) {
+                window.openApplicationModal();
+            } else {
+                console.error('openApplicationModal function not found!');
             }
+            return false;
         }
-    }, true); // Use capture phase
+        
+        // Check for "Kartınızı Alın" buttons
+        if ((buttonText.includes('Kartınızı Alın') || buttonText.includes('Kartınızı alın')) &&
+            classes.includes('btn') && 
+            href && !href.startsWith('http') && !href.endsWith('.html') &&
+            !href.startsWith('mailto:') && href !== '#cards' && href !== '#partners' &&
+            href !== '#contact' && href !== '#home' && href !== '#app') {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log('Kartınızı Alın button clicked, opening modal...');
+            if (window.openApplicationModal) {
+                window.openApplicationModal();
+            } else {
+                console.error('openApplicationModal function not found!');
+            }
+            return false;
+        }
+    }, true); // Use capture phase to catch before other handlers
 }
 
 // Validate Application Form

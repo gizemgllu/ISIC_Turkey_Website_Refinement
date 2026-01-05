@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademik Kurum Anlaşmaları - ISIC Türkiye</title>
+    <meta name="description" content="Uluslararası Öğrenci ve Öğretmen Kimlik Kartı ile okulunuza, kolejinize veya üniversitenize yakınlıkları gösteren küresel akademik topluluğa erişim sağlayın.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Partnership Hero Section */
+        .partnership-hero {
+            background: linear-gradient(135deg, #40b8b8 0%, #006666 100%);
+            padding: 120px 0 80px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .partnership-hero .icon-box {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .partnership-hero .icon-box i {
+            font-size: 60px;
+            color: #ffffff;
+        }
+
+        .partnership-hero h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .partnership-hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f5f5, #ffffff);
+            border-radius: 15px;
+            border: 2px solid #40b8b8;
+        }
+
+        .stat-card .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #40b8b8;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .stat-label {
+            font-size: 18px;
+            color: #006666;
+            font-weight: 500;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #40b8b8;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #40b8b8, #006666);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .benefit-card .icon i {
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        .benefit-card h3 {
+            font-size: 22px;
+            color: #006666;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .requirements-box {
+            background: linear-gradient(135deg, #40b8b8, #006666);
+            color: #ffffff;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .requirements-box h3 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .requirements-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .requirement-item i {
+            font-size: 24px;
+            color: #feef00;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .requirement-item p {
+            color: #ffffff;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .process-steps {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .process-step .step-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #40b8b8, #006666);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .process-step h4 {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #006666;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #40b8b8 0%, #006666 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-contact {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 20px;
+        }
+
+        .cta-contact i {
+            font-size: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .partnership-hero h1 {
+                font-size: 32px;
+            }
+
+            .partnership-hero p {
+                font-size: 16px;
+            }
+
+            .benefits-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .requirements-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span><i class="fas fa-envelope"></i> info@isicturkiye.com</span>
+                </div>
+                <div class="top-bar-right">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="language-selector">
+                        <button class="lang-btn active">TR</button>
+                        <button class="lang-btn">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye Logo" width="180">
+                    </a>
+                </div>
+
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="firsatlar.html" class="nav-link">Fırsatlar</a></li>
+                        <li><a href="akademik-anlasmalar.html" class="nav-link active">Okullar İçin</a></li>
+                        <li><a href="is-ortakligi.html" class="nav-link">İşletmeler İçin</a></li>
+                        <li><a href="deneyim-yazilari.html" class="nav-link">Deneyim Yazıları</a></li>
+                        <li><a href="blog-yazilari.html" class="nav-link">Blog Yazıları</a></li>
+                        <li><a href="index.html#contact" class="nav-link">İletişim</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-right">
+                    <a href="index.html#apply" class="btn btn-primary btn-apply-header">ŞİMDİ BAŞVUR</a>
+                    <div class="search-box">
+                        <input type="text" placeholder="Ara...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Partnership Hero -->
+    <section class="partnership-hero">
+        <div class="container">
+            <div class="icon-box">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1>Akademik Kurum Anlaşmaları</h1>
+            <p>Uluslararası Öğrenci Kimlik Kartı ISIC ve Uluslararası Öğretmen Kimlik Kartı ITIC, öğrenciler ve öğretmenler için okullarına, kolejlerine veya üniversitelerine yakınlıklarını gösteren ve küresel akademik topluluğa erişim sağlayan bir kimlik belgesi olarak hizmet vermektedir. Her işbirliği bireysel gereksinimler göre uyarlanır.</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Küresel Akademik Ağın Bir Parçası Olun</h2>
+                <p>Dünya çapında binlerce eğitim kurumu ISIC ile iş birliği yapıyor</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2M+</div>
+                    <div class="stat-label">Yıllık Co-Branded Kart</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Akademik Ortak</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">130+</div>
+                    <div class="stat-label">Ülke</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">İndirim ve Fayda</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Akademik Kurumunuz İçin Avantajlar</h2>
+                <p>ISIC ve ITIC kartları ile okulunuza sağlayacağınız değerler</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Üretim ve Teslimat</h3>
+                    <p>ISIC tüm kart tasarımını, üretimini ve teslimatını üstlenir. Kurumunuz için ek maliyet veya iş yükü olmaz.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Özelleştirme</h3>
+                    <p>Kartlar, kurumunuzun markasını ve değerlerini yansıtacak şekilde özelleştirilebilir. Logosu ve renk şemanızla uyumlu tasarım.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Teknoloji Entegrasyonu</h3>
+                    <p>Chip, manyetik şerit, barkod veya QR kod gibi teknolojilerin entegrasyonu ile kampüs sistemlerinize uyum sağlar.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h3>Uluslararası Topluluk</h3>
+                    <p>Küresel akademik ağa üyelik ve ücretsiz tanıtım desteği ile kurumunuzun uluslararası görünürlüğü artar.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Veri Güvenliği</h3>
+                    <p>GDPR uyumlu operasyonlar ile öğrenci ve öğretmen verilerinin güvenliği en üst seviyede sağlanır.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Öğrenci Avantajları</h3>
+                    <p>Öğrencileriniz dünya çapında binlerce indirim ve faydalanma imkanına erişim sağlar. Öğretmenleriniz için de özel avantajlar.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Sadakat İndirimleri</h3>
+                    <p>Uzun vadeli ortaklar için özel sadakat indirimleri ve kampanyalar sunulur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Başvuru Koşulları</h2>
+                <p>ISIC ve ITIC kartı almak için gerekli koşullar</p>
+            </div>
+
+            <div class="requirements-box">
+                <h3>Öğrenci ve Öğretmen Gereksinimleri</h3>
+                <div class="requirements-list">
+                    <div class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Yaş Şartı:</strong> Başvuru sahipleri 12 yaşından büyük olmalıdır</p>
+                    </div>
+
+                    <div class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Aktif Statü:</strong> Aktif öğrenci veya öğretmen statüsünde olmalıdır (pasif öğrenci kabul edilmez)</p>
+                    </div>
+
+                    <div class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Belge Güncelliği:</strong> 3 aydan eski olmayan geçerli belgeler sunulmalıdır</p>
+                    </div>
+
+                    <div class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p><strong>Resmi Kayıt:</strong> Okulda, kolejde veya üniversitede resmi olarak kayıtlı olunmalıdır</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Başvuru Süreci</h2>
+                <p>ISIC ile akademik kurum ortaklığı için adım adım süreç</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>İletişim Formu</h4>
+                    <p>Okul bilgileriniz, öğrenci/öğretmen sayılarınız ile iletişim formunu doldurun ve başvurunuzu yapın.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Fiyat Teklifi</h4>
+                    <p>Kurumunuzun ihtiyaçlarına göre özel fiyat teklifi alın. Her işbirliği özelleştirilir.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Kart Tasarımı</h4>
+                    <p>Kurumunuzun markasını yansıtan özel kart tasarımını onaylayın. Logo ve renk entegrasyonu yapılır.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Kişiselleştirme Detayları</h4>
+                    <p>Öğrenci ve öğretmenlerinizin bilgilerini güvenli şekilde sisteme aktarın.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Kart Teslimatı</h4>
+                    <p>Kartlar üretilir ve kurumunuza teslim edilir. Teslimat süresi ve detayları önceden bildirilir.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Ödeme</h4>
+                    <p>Kartların teslimatından sonra fatura düzenlenir ve ödeme gerçekleştirilir.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">7</div>
+                    <h4>Kart Geçerliliği</h4>
+                    <p>Kartlar, düzenlenme tarihine bağlı olarak 12-16 ay geçerlidir. Yenileme süreçleri kolaylıkla yapılır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Kurumunuzu Küresel Akademik Ağa Bağlayın</h2>
+            <p>Öğrencilerinize ve öğretmenlerinize dünya çapında fırsatların kapısını açın. ISIC ve ITIC ile akademik kurumunuzu güçlendirin.</p>
+            <a href="index.html#contact" class="btn btn-large" style="background: #feef00; color: #006666; border-color: #feef00; font-weight: 700;">Hemen Başvurun</a>
+
+            <div class="cta-contact">
+                <i class="fas fa-envelope"></i>
+                <span>info@isicturkiye.com</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye" width="120">
+                    </div>
+                    <p>Dünya çapında öğrenci indirimlerinden yararlanın</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html#cards">Kartlar</a>
+                    <a href="is-ortakligi.html">İş Ortakları</a>
+                    <a href="deneyim-yazilari.html">Deneyim Yazıları</a>
+                    <a href="blog-yazilari.html">Blog Yazıları</a>
+                </div>
+
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> info@isicturkiye.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 ISIC Türkiye. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

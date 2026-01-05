@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Ortaklığı - ISIC Türkiye</title>
+    <meta name="description" content="ISIC ile iş ortaklığı yaparak geniş öğrenci kitlesine ulaşın. Markanızı öğrenci dostu bir imaj ile geliştirin.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Partnership Hero Section */
+        .partnership-hero {
+            background: linear-gradient(135deg, #40b8b8 0%, #006666 100%);
+            padding: 120px 0 80px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .partnership-hero .icon-box {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .partnership-hero .icon-box i {
+            font-size: 60px;
+            color: #ffffff;
+        }
+
+        .partnership-hero h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .partnership-hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #40b8b8;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #40b8b8, #006666);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .benefit-card .icon i {
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        .benefit-card h3 {
+            font-size: 22px;
+            color: #006666;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Partners Showcase */
+        .partners-showcase {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .partners-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .partner-logo {
+            padding: 20px 40px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #333;
+            font-size: 18px;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .process-steps {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .process-step .step-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #40b8b8, #006666);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .process-step h4 {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #006666;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #40b8b8 0%, #006666 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-contact {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 20px;
+        }
+
+        .cta-contact i {
+            font-size: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .partnership-hero h1 {
+                font-size: 32px;
+            }
+
+            .partnership-hero p {
+                font-size: 16px;
+            }
+
+            .benefits-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span><i class="fas fa-envelope"></i> info@isicturkiye.com</span>
+                </div>
+                <div class="top-bar-right">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="language-selector">
+                        <button class="lang-btn active">TR</button>
+                        <button class="lang-btn">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye Logo" width="180">
+                    </a>
+                </div>
+
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="firsatlar.html" class="nav-link">Fırsatlar</a></li>
+                        <li><a href="akademik-anlasmalar.html" class="nav-link">Okullar İçin</a></li>
+                        <li><a href="is-ortakligi.html" class="nav-link active">İşletmeler İçin</a></li>
+                        <li><a href="deneyim-yazilari.html" class="nav-link">Deneyim Yazıları</a></li>
+                        <li><a href="blog-yazilari.html" class="nav-link">Blog Yazıları</a></li>
+                        <li><a href="index.html#contact" class="nav-link">İletişim</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-right">
+                    <a href="index.html#apply" class="btn btn-primary btn-apply-header">ŞİMDİ BAŞVUR</a>
+                    <div class="search-box">
+                        <input type="text" placeholder="Ara...">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Partnership Hero -->
+    <section class="partnership-hero">
+        <div class="container">
+            <div class="icon-box">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <h1>İş Ortaklığı</h1>
+            <p>ISIC öğrenci pazarlaması ile işletmeniz genç kesime ulaşacak, böylece müşteri tabanınız genişleyerek markanız için öğrenci dostu bir imaj yaratabileceksiniz. Ayrıca teklifiniz hem yerli hem de yabancı kullanıcılar için görünürlülük kazanacak.</p>
+        </div>
+    </section>
+
+    <!-- Global Partners -->
+    <section class="partners-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>150.000+ İşletme ISIC ile İş Birliği Yapıyor</h2>
+                <p>Dünya çapında tanınmış markalar ISIC öğrenci pazarlama uzmanlığına güveniyor</p>
+            </div>
+
+            <div class="partners-logos">
+                <div class="partner-logo">British Council</div>
+                <div class="partner-logo">Microsoft</div>
+                <div class="partner-logo">Lonely Planet</div>
+                <div class="partner-logo">IELTS</div>
+                <div class="partner-logo">The Economist</div>
+                <div class="partner-logo">Hard Rock Café</div>
+                <div class="partner-logo">Hostelworld</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>İş Ortağı Olarak Kazanımlarınız</h2>
+                <p>ISIC ile ortaklık yaparak işletmenize sağlayacağınız avantajlar</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Genç Demografiye Erişim</h3>
+                    <p>Geleceğin sadık müşterilerini temsil eden gençlik demografisine erişim elde edin ve markanızı bu değerli kitleye tanıtın.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Tanıtım Desteği</h3>
+                    <p>ISIC, teklifinizi sizin adınıza tanıtır. Promosyon çalışmalarını biz üstleniriz, siz sadece indirimlerinizi sunun.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Artan Satış Potansiyeli</h3>
+                    <p>Cazip teklifler sunarak rakiplerinizden müşterileri çekebilir ve satış artışı sağlayabilirsiniz.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Yerel ve Uluslararası Görünürlük</h3>
+                    <p>Teklifiniz hem yerel hem de uluslararası düzeyde ISIC kart sahiplerine sunulur, markanızın erişimi genişler.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Müşteri Sadakati</h3>
+                    <p>Öğrenciler ve gençlerle uzun vadeli ilişkiler kurarak marka sadakati oluşturun. Genç müşteriler alışkanlıklarını yetişkinliğe taşır.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Öğrenci Dostu İmaj</h3>
+                    <p>Markanızı öğrenci dostu bir işletme olarak konumlandırın ve gençlik pazarındaki itibarınızı güçlendirin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ortaklık Süreci Nasıl İşler?</h2>
+                <p>ISIC ile iş ortağı olmak için izlemeniz gereken adımlar</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Başvuru Formu</h4>
+                    <p>İşletme bilgileriniz, ürün/hizmet detaylarınız, lokasyonunuz ve öğrencilere sunacağınız indirim teklifinizle başvuru formunu doldurun.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Promosyon Stratejisi</h4>
+                    <p>ISIC ekibimiz, teklifiniz için en uygun tanıtım stratejisini geliştirir ve size sunar.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Ortaklık Anlaşması</h4>
+                    <p>Karşılıklı kabul edilen koşullar doğrultusunda ortaklık anlaşması hazırlanır ve imzalanır.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Pazarlama Materyalleri</h4>
+                    <p>İşletmenizin logosu, görselleri ve kampanya detaylarını bizimle paylaşın.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>İletişim Araçları</h4>
+                    <p>ISIC, teklifinizi tanıtmak için profesyonel iletişim materyalleri oluşturur ve yayınlar.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Kart Doğrulama Eğitimi</h4>
+                    <p>Personellerinize ISIC kartlarının nasıl doğrulanacağı konusunda eğitim verilir.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">7</div>
+                    <h4>Kullanım Takibi</h4>
+                    <p>İş ortağımız olarak indirim kullanım oranlarınızı takip edebilir, performans raporları alabilirsiniz.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">8</div>
+                    <h4>Ek Kampanyalar</h4>
+                    <p>Dilediğiniz zaman yeni kampanyalar önerebilir ve ek promosyonlar düzenleyebilirsiniz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Hemen İş Ortağı Olun</h2>
+            <p>Dünya çapında 5 milyondan fazla öğrenci ve gence ulaşın. Markanızı ISIC ile büyütün.</p>
+            <a href="index.html#contact" class="btn btn-large" style="background: #feef00; color: #006666; border-color: #feef00; font-weight: 700;">Başvuru Yapın</a>
+
+            <div class="cta-contact">
+                <i class="fas fa-envelope"></i>
+                <span>info@isicturkiye.com</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <img src="https://static.tildacdn.net/tild3037-3938-4839-a131-623339343364/ISIC_logo_WHITE_rgb-.png" alt="ISIC Türkiye" width="120">
+                    </div>
+                    <p>Dünya çapında öğrenci indirimlerinden yararlanın</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html#cards">Kartlar</a>
+                    <a href="is-ortakligi.html">İş Ortakları</a>
+                    <a href="deneyim-yazilari.html">Deneyim Yazıları</a>
+                    <a href="blog-yazilari.html">Blog Yazıları</a>
+                </div>
+
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> info@isicturkiye.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 ISIC Türkiye. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
